@@ -299,7 +299,7 @@ if __name__ == "__main__":
 	# Check if all proper input arguments exist
 	if len(sys.argv) != 4:
 		print("Improper number of input arguments")
-		print("USAGE: prob4.py <train_dir> <test_dir> <mode (FCNN or CNN)>")
+		print("USAGE: main.py <train_dir> <test_dir> <mode (FCNN or CNN)>")
 		sys.exit()
 		
 	start_time = time.time()
