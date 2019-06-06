@@ -41,7 +41,9 @@ Scene Classification using PyTorch with a serverless AWS deployment option. See 
 
 5. Create a new stack in CloudFormation and upload the provided template and create with default settings.
 
-6. Try it out by issuing a POST request to your new API Gateway endpoint titled "Get_Scene API". I recommend using Postman.
+6. Try it out by issuing a POST request to your new API Gateway endpoint titled "Get_Scene API". 
+
+    I recommend using Postman with the configuration described below. For the mode - use either "FCNN" (Fully Connected Neural Network) or "CNN" (Convolutional Neural Network). Provide the image as a Base64 encoded string.
 
 ****POST Message Body****
 
