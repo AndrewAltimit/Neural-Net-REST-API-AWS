@@ -4,7 +4,7 @@ Scene Classification using PyTorch with a serverless AWS deployment option. See 
 ## Required Libs and Environment
 * Python 3.6
 * PyTorch
-* Numpy
+* NumPy
 * PIL
 
 ## AWS Services
