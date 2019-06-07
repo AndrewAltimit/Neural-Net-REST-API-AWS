@@ -25,6 +25,7 @@ import torch.nn.functional as F
 ### Global Variables ###
 RES_WIDTH = 32
 RES_HEIGHT = 32
+# Alphabetical list of classes the model is based on
 MODEL_CLASSES = ["grass", "ocean", "redcarpet", "road", "wheatfield"]
 
 		
