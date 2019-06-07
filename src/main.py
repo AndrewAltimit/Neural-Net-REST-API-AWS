@@ -23,8 +23,8 @@ EPOCHS = 100
 BATCH_SIZE = 32
 LOSS_FUNCTION = "CROSSENTROPY"
 
-MODEL_FILENAME = "model"
 MODEL_CLASSES = ["grass", "ocean", "redcarpet", "road", "wheatfield"]
+
 LOAD_MODEL = False
 
 		
@@ -275,6 +275,7 @@ if __name__ == "__main__":
 		
 	start_time = time.time()
 	mode = sys.argv[3].upper()
+	model_filename = "mode_{}".format(mode.upper())
 		
 	# Get Subdirectories
 	train_folders = get_subdirectories(sys.argv[1])
@@ -302,7 +303,7 @@ if __name__ == "__main__":
 			model = Net()
 		elif mode == "CNN":
 			model = ConvNet()
-		model.load_state_dict(torch.load(MODEL_FILENAME))
+		model.load_state_dict(torch.load(model_filename))
 		model.eval()
 	
 
@@ -329,7 +330,7 @@ if __name__ == "__main__":
 	
 	# Export Model
 	if not LOAD_MODEL:
-		torch.save(model.state_dict(), MODEL_FILENAME)
+		torch.save(model.state_dict(), model_filename)
 	
 
 	
