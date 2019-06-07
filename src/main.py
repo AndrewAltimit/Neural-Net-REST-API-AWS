@@ -273,7 +273,7 @@ if __name__ == "__main__":
 		
 	start_time = time.time()
 	mode = sys.argv[3].upper()
-	model_filename = "mode_{}".format(mode.upper())
+	model_filename = "model_{}".format(mode.upper())
 		
 	# Get Subdirectories
 	train_folders = get_subdirectories(sys.argv[1])
