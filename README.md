@@ -21,7 +21,7 @@ Scene Classification using PyTorch with a serverless AWS deployment option. See 
 
 ###### Inside the "AWS Deployment" folder you'll find the CloudFormation template, Lambda Function source code, custom Lambda Layers (NumPy, PIL), and "YOUR_BUCKET_NAME" for the required S3 contents.
 
-1. Upload the contents of "YOUR_BUCKET_NAME" to your S3 bucket. This includes the Lambda function code and some pre-trained FCNN and CNN models. Feel free to train your own models using the Local run method described at the bottom of the page.
+1. Upload the contents of "YOUR_BUCKET_NAME" to your S3 bucket. This includes the Lambda function code and some pre-trained FCNN and CNN models. These models were trained with a batch size of 32 and 100 epochs, feel free generate more robust models using the local run method described at the bottom of the page.
 
 2. Ensure you have access to Lambda Layers for PyTorch, NumPy, and PIL.  
  
@@ -59,6 +59,8 @@ Scene Classification using PyTorch with a serverless AWS deployment option. See 
 
 ## Running Locally
 
+###### After running the .
+
 ****Train Network and Classify Test Samples****
 
 The src directory contains main.py which is used for training and testing FCNN/CNN models.
@@ -66,4 +68,5 @@ The src directory contains main.py which is used for training and testing FCNN/C
 	python main.py <train_dir> <test_dir> <mode>
 	
 The mode can be either "FCNN" (Fully Connected Neural Network) or "CNN" (Convolutional Neural Network). The test and train directories must contain a subdirectory for each class. See the provided example datasets in the train and test folders respectively.
-	
+
+After the run is complete, the model will be evaluated and metrics displayed to the end user. A file will be generated in the same directory as main.py titled either "model_FCNN" or "model_CNN" depending on the type launched.
