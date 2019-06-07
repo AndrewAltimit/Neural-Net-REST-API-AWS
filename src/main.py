@@ -23,8 +23,6 @@ EPOCHS = 100
 BATCH_SIZE = 32
 LOSS_FUNCTION = "CROSSENTROPY"
 
-MODEL_CLASSES = ["grass", "ocean", "redcarpet", "road", "wheatfield"]
-
 LOAD_MODEL = False
 
 		
