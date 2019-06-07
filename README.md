@@ -67,4 +67,4 @@ The src directory contains main.py which is used for training and testing FCNN/C
 	
 The mode can be either "FCNN" (Fully Connected Neural Network) or "CNN" (Convolutional Neural Network). The test and train directories must contain a subdirectory for each class. See the provided example datasets in the train and test folders respectively.
 
-After the run is complete, the model will be evaluated and metrics displayed to the end user. A file will be generated in the same directory as main.py titled either "model_FCNN" or "model_CNN" depending on the type launched.
+After the run is complete, the model will be evaluated and metrics displayed to the end user. A file will be generated in the same directory as main.py titled either "model_FCNN" or "model_CNN" depending on the type launched. This model can be used locally by setting "LOAD_MODEL" to true in main.py. The models can also be uploaded into your S3 bucket for the AWS deployment described above.
