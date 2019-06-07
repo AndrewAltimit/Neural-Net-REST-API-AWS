@@ -59,8 +59,6 @@ Scene Classification using PyTorch with a serverless AWS deployment option. See 
 
 ## Running Locally
 
-###### After running the .
-
 ****Train Network and Classify Test Samples****
 
 The src directory contains main.py which is used for training and testing FCNN/CNN models.
