@@ -1,5 +1,5 @@
 # Overview
-Scene Classification using PyTorch with a serverless AWS deployment option. See the uploaded PDF for experimental results. 
+Scene Classification using PyTorch with a serverless AWS CloudFormation deployment option. See the uploaded PDF for experimental results. 
 
 ## Required Libs and Environment
 * Python 3.6
@@ -17,7 +17,7 @@ Scene Classification using PyTorch with a serverless AWS deployment option. See 
 
 
 
-## Serverless AWS Deployment
+## AWS Deployment with CloudFormation
 
 ###### Inside the "AWS Deployment" folder you'll find the CloudFormation template, Lambda Function source code, custom Lambda Layers (NumPy, PIL), and the required S3 bucket contents.
 
