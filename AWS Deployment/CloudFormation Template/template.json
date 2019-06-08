@@ -1,4 +1,28 @@
 {
+	"Parameters": {
+		"BucketName": {
+		  "Description": "Your Bucket Name",
+		  "Type": "String"
+		},
+		"ServiceUsername": {
+		  "Description": "Username for the IAM account which will be created",
+		  "Type": "String",
+		  "Default": "DefaultUser"
+		},
+		"NumPyLambdaLayerARN": {
+		  "Description": "ARN of a Python 3.6 NumPy Lambda Layer",
+		  "Type": "String"
+		},
+		"PILLambdaLayerARN": {
+		  "Description": "ARN of a Python 3.6 PIL Lambda Layer",
+		  "Type": "String"
+		},
+		"PyTorchLambdaLayerARN": {
+		  "Description": "ARN of a Python 3.6 PyTorch Lambda Layer",
+		  "Type": "String",
+		  "Default": "arn:aws:lambda:us-east-2:934676248949:layer:pytorchv1-py36:2"
+		}
+	},
   "Resources": {
     "IAMLambdaServiceRole": {
       "Type": "AWS::IAM::Role",
@@ -88,15 +112,15 @@
         "FunctionName": "GetScene",
         "Description": "Function to classify a scene",
         "Code": {
-          "S3Bucket": "YOUR-BUCKET-NAME",
+          "S3Bucket": {"Ref": "BucketName"},
           "S3Key": "Get_Scene.zip"
         },
         "Handler": "Get_Scene.get_scene",
         "Runtime": "python3.6",
 		"Layers": [
-			"arn:aws:lambda:us-east-2:934676248949:layer:pytorchv1-py36:2",
-			"PIL_ARN_HERE",
-			"NUMPY_ARN_HERE"],
+			{"Ref": "NumPyLambdaLayerARN"},
+			{"Ref": "PILLambdaLayerARN"},
+			{"Ref": "PyTorchLambdaLayerARN"}],
         "MemorySize": 1024,
         "Role": {
           "Fn::GetAtt": [
@@ -239,7 +263,7 @@
     "RestAPICaller": {
       "Type": "AWS::IAM::User",
       "Properties": {
-        "UserName": "DefaultUser"
+        "UserName": {"Ref": "ServiceUsername"}
       }
     },
     "RestAPICallerManagedPolicy": {
@@ -307,12 +331,12 @@
               "Sid": "RestAPICaller003",
               "Effect": "Allow",
               "Action": "s3:GetObject",
-              "Resource": "arn:aws:s3:::YOUR-BUCKET-NAME/*"
+              "Resource": {"Fn::Join": ["", ["arn:aws:s3:::", {"Ref": "BucketName"}, "/*"]]}
             }
           ]
         },
         "Users": [
-          "DefaultUser"
+          {"Ref": "ServiceUsername"}
         ],
         "ManagedPolicyName": "API_Caller_Policy"
       }
@@ -414,7 +438,7 @@
     "BucketPolicy": {
       "Type": "AWS::S3::BucketPolicy",
       "Properties": {
-        "Bucket": "YOUR-BUCKET-NAME",
+        "Bucket": {"Ref": "BucketName"},
         "PolicyDocument": {
           "Version": "2012-10-17",
           "Statement": [
@@ -423,7 +447,7 @@
               "Action": [
                 "s3:GetObject"
               ],
-              "Resource": "arn:aws:s3:::YOUR-BUCKET-NAME/*",
+              "Resource": {"Fn::Join": ["", ["arn:aws:s3:::", {"Ref": "BucketName"}, "/*"]]},
               "Condition": {},
               "Principal": {
                 "AWS": [
@@ -435,7 +459,7 @@
                         {
                           "Ref": "AWS::AccountId"
                         },
-                        "user/DefaultUser"
+						{"Fn::Join": ["", ["user/", {"Ref": "ServiceUsername"}]]}
                       ]
                     ]
                   }
