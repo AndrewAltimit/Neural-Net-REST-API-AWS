@@ -1,5 +1,5 @@
 # Overview
-Scene Classification using PyTorch with a serverless AWS CloudFormation deployment option. See the uploaded PDF for experimental results. 
+Image classification using a REST API and PyTorch/NumPy/PIL libraries. Includes AWS deployment utilizing CloudFormation, API Gateway, Lambda, and S3.
 
 ## Contributors
 
