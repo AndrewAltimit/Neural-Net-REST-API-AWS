@@ -49,7 +49,7 @@ Scene Classification using PyTorch with a serverless AWS CloudFormation deployme
 
 ****POST Authorization****
 
-		Provide the Access Key and Secret Key associated to the username you specified in step 4.
+		Provide the Access Key and Secret Key associated to the username you specified in step 3.
 
 
 ## Running Locally
