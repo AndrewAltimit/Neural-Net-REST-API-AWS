@@ -1,6 +1,12 @@
 # Overview
 Scene Classification using PyTorch with a serverless AWS CloudFormation deployment option. See the uploaded PDF for experimental results. 
 
+## Contributors
+
+<a href="https://github.com/AndrewAltimit/Scene-Classification-AWS-Serverless/graphs/contributors">
+  <img src="https://contributors-img.firebaseapp.com/image?repo=AndrewAltimit/Scene-Classification-AWS-Serverless" />
+</a>
+
 ## Required Libs and Environment
 * Python 3.6
 * PyTorch
