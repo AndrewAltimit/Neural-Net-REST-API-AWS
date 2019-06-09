@@ -137,18 +137,19 @@ def create_image(img_string, output_path):
 
 def get_scene(event, context):
 	try:
-		# Connect to S3 Bucket
-		s3 = boto3.resource('s3')
-		client_s3 = boto3.client('s3')
-		bucket = s3.Bucket("altimit-test-bucket")
-		
 		# Check for Headers
-		if ("mode" not in event) or ("imageBase64" not in event):
-			return "Provide both the mode and imageBase64 headers"
+		if ("mode" not in event) or ("imageBase64" not in event) or ("bucketName" not in event):
+			return "Provide the headers for mode, imageBase64, and bucketName"
 			
 		# Extract Headers
 		mode = event["mode"].upper()
+		bucketName = event["bucketName"]
 		image_string = event["imageBase64"]
+	
+		# Connect to S3 Bucket
+		s3 = boto3.resource('s3')
+		client_s3 = boto3.client('s3')
+		bucket = s3.Bucket(bucketName)
 		
 		# Create working directory
 		working_directory = "/tmp/scene-classifier"
@@ -161,7 +162,7 @@ def get_scene(event, context):
 		# Download the pre-trained model from S3
 		model_path = working_directory + "/model_{}".format(mode.upper())
 		with open(model_path, 'wb') as f:
-			 client_s3.download_fileobj("altimit-test-bucket", "model_{}".format(mode.upper()), f)
+			 client_s3.download_fileobj(bucketName, "model_{}".format(mode.upper()), f)
 
 		# Initialize PyTorch model based on the specified mode
 		if mode == "FCNN":
