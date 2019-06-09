@@ -45,7 +45,7 @@ Image classification using a REST API and PyTorch/NumPy/PIL libraries. Includes 
         {
           "mode": String,
           "imageBase64": String,
-	  "bucketName": String
+          "bucketName": String
         }
 
 ****POST Authorization****
