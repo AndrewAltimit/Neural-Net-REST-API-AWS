@@ -27,7 +27,7 @@ Image classification using a REST API and PyTorch/NumPy/PIL libraries. Includes 
 
 ###### Inside the "AWS Deployment" folder you'll find the CloudFormation template, Lambda Function source code, custom Lambda Layers (NumPy, PIL), and the required S3 bucket contents.
 
-1. Upload the files in **Bucket Contents** to your S3 bucket. This includes the Lambda function code and some pre-trained FCNN and CNN models. These models were lightly trained with a batch size = 32 and epochs = 100, feel free generate more robust models using the local run method described at the bottom of the page. 
+1. Upload the files in **Bucket Contents** to your S3 bucket. This includes the Lambda function code and some pre-trained FCNN and CNN models. These models were lightly trained with a batch size = 32 and epochs = 100, feel free to generate more robust models using the local run method described at the bottom of the page. 
 
 2. Create a new stack in CloudFormation and upload **template.json**.
 
