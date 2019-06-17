@@ -4,7 +4,7 @@ Image classification using a REST API and PyTorch/NumPy/PIL libraries. Includes 
 ## Contributors
 
 <a href="https://github.com/AndrewAltimit/Scene-Classification-AWS-Serverless/graphs/contributors">
-  <img src="https://contributors-img.firebaseapp.com/image?repo=AndrewAltimit/Scene-Classification-AWS-Serverless" />
+  <img src="contributors.png" />
 </a>
 
 ## Required Libs and Environment
