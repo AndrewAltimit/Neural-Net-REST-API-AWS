@@ -3,7 +3,7 @@ Image classification using a REST API and PyTorch/NumPy/PIL libraries. Includes 
 
 ## Contributors
 
-<a href="https://github.com/AndrewAltimit/Scene-Classification-AWS-Serverless/graphs/contributors">
+<a href="https://github.com/AndrewAltimit/Neural-Net-REST-API-AWS/graphs/contributors">
   <img src="contributors.png" />
 </a>
 
